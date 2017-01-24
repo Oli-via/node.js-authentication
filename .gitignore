@@ -3,3 +3,4 @@
 .idea/server20170123.iml
 .idea/workspace.xml
 node_modules/
+config.js
