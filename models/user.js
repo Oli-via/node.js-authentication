@@ -48,14 +48,3 @@ const ModelClass = mongoose.model('user', userSchema)    // loads the Schema int
 
 // Export the model
 module.exports = ModelClass
-
-
-
-
-
-
-
-
-
-
-

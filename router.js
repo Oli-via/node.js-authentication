@@ -7,7 +7,7 @@ const passport = require('passport');
 
 // tell passport to authenticate our user using the jwt strategy.
 const requireAuth = passport.authenticate('jwt', {session: false});
-const requereSignin = passport.authenticate('local', {session: false});
+const requireSignIn = passport.authenticate('local', {session: false});
 
 module.exports = function (app) {
   // next is use in error handling
@@ -18,6 +18,6 @@ module.exports = function (app) {
   app.get('/', requireAuth, function (req, res) {
     res.send({hi: 'there'})
   });
-  app.post('/signin', requereSignin, Authentication.signin);
+  app.post('/signin', requireSignIn, Authentication.signin);
   app.post('/signup', Authentication.signUp)
 }
