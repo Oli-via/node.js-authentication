@@ -31,7 +31,16 @@ userSchema.pre('save', function (next) {
       next();
     })
   })
-})
+});
+
+// userSchema.methods.: whenever we create a user object,
+// it's going to have an access to any functions that we defined on the methods property
+userSchema.methods.comparePassword = function (candidatePassword, callback) {
+  bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
+    if (err){ return callback(err);}
+    callback(null, isMatch);
+  })
+}
 
 // Create the model class
 const ModelClass = mongoose.model('user', userSchema)    // loads the Schema into mongoose
@@ -39,3 +48,14 @@ const ModelClass = mongoose.model('user', userSchema)    // loads the Schema int
 
 // Export the model
 module.exports = ModelClass
+
+
+
+
+
+
+
+
+
+
+

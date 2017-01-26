@@ -12,6 +12,11 @@ function tokenForUser(user) {
 //  iat is another jwt property, short for issue add time
 }
 
+exports.signin = function (req, res, next) {
+//  User has already had their email and password auth'd
+//  We just need to give them a token
+  res.send({ token: tokenForUser(req.user) });
+}
 exports.signUp = function (req, res, next) {
   // req.body: 得到post请求body中的内容
   const email = req.body.email;
