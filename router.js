@@ -16,7 +16,7 @@ module.exports = function (app) {
   })*/
 
   app.get('/', requireAuth, function (req, res) {
-    res.send({hi: 'there'})
+    res.send({message: 'Top Secrets Messages: '})
   });
   app.post('/signin', requireSignIn, Authentication.signin);
   app.post('/signup', Authentication.signUp)
